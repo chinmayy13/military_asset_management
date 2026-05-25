@@ -196,15 +196,3 @@ The project can be deployed easily on platforms like Render or Railway with Post
 - Audit logs
 - Multi-role admin panel
 
----
-
-## License
-
-This project is licensed under the MIT License.
-
----
-
-## Author
-
-Developed by Chinmay Kumar
-Final Year Chemical Engineering Undergraduate at IIT Madras
