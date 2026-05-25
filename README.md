@@ -1,212 +1,210 @@
 # Military Asset Management System
 
-A comprehensive web application for managing military assets, equipment, and personnel assignments across multiple bases. Built with React, Node.js, and PostgreSQL.
+A full-stack web application designed to manage military assets, equipment transfers, personnel assignments, and purchases across multiple bases. Built using React, Node.js, Express, and PostgreSQL.
 
-## 🎯 Features
+---
 
-### Core Functionality
-- **Dashboard**: Real-time overview of asset distribution and key metrics
-- **Asset Purchases**: Track new equipment acquisitions with detailed records
-- **Asset Transfers**: Manage equipment transfers between bases
-- **Personnel Assignments**: Assign and track personnel to different bases and roles
-- **User Authentication**: Secure login/registration system with role-based access
+## Features
 
-### Key Capabilities
-- Real-time asset tracking across multiple military bases
-- Comprehensive reporting and analytics
-- Role-based user permissions
-- Responsive design for desktop and mobile use
-- Secure API with JWT authentication
-- PostgreSQL database for reliable data storage
+### Asset Management
+- Track military equipment across different bases
+- Monitor asset quantities and availability in real time
+- Maintain organized records of purchases and transfers
 
-## 🛠️ Tech Stack
+### Personnel Management
+- Assign personnel to specific bases and roles
+- Manage assignment history efficiently
+
+### Authentication & Security
+- Secure login and registration system
+- JWT-based authentication
+- Role-based access control
+- Password encryption using bcrypt
+
+### Dashboard & Analytics
+- Interactive dashboard with important metrics
+- Charts and visual reports for better monitoring
+- Responsive design for desktop and mobile devices
+
+---
+
+## Tech Stack
 
 ### Frontend
-- **React 18** - Modern UI framework
-- **TypeScript** - Type-safe development
-- **Tailwind CSS** - Utility-first styling
-- **React Router** - Client-side routing
-- **Recharts** - Data visualization
-- **Lucide React** - Icon library
-- **Vite** - Fast build tool
+- React 18
+- TypeScript
+- Tailwind CSS
+- React Router
+- Recharts
+- Vite
 
 ### Backend
-- **Node.js** - Server runtime
-- **Express.js** - Web framework
-- **PostgreSQL** - Relational database
-- **JWT** - Authentication tokens
-- **bcryptjs** - Password hashing
-- **CORS** - Cross-origin resource sharing
+- Node.js
+- Express.js
+- PostgreSQL
+- JWT Authentication
+- bcryptjs
+- CORS
 
 ### Development Tools
-- **ESLint** - Code linting
-- **TypeScript** - Type checking
-- **Nodemon** - Development server
-- **Concurrently** - Run multiple commands
+- ESLint
+- Nodemon
+- Concurrently
 
-## 🚀 Getting Started
+---
+
+## Getting Started
 
 ### Prerequisites
-- Node.js >= 18.0.0
-- PostgreSQL database
-- npm or yarn package manager
+Make sure the following are installed on your system:
 
-### Installation
+- Node.js (v18 or above)
+- PostgreSQL
+- npm or yarn
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd military-asset-management
-   ```
+---
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+## Installation
 
-3. **Environment Setup**
-   Create a `.env` file in the root directory:
-   ```env
-   NODE_ENV=development
-   DB_HOST=your-database-host
-   DB_PORT=5432
-   DB_NAME=your-database-name
-   DB_USER=your-database-user
-   DB_PASSWORD=your-database-password
-   JWT_SECRET=your-jwt-secret-key
-   PORT=3000
-   ```
+### 1. Clone the Repository
 
-4. **Database Setup**
-   - Ensure PostgreSQL is running
-   - Create a database for the application
-   - The application will automatically create required tables on first run
-
-### Running the Application
-
-#### Development Mode
 ```bash
-# Run both frontend and backend concurrently
-npm run dev:full
-
-# Or run them separately:
-npm run dev          # Frontend only (Vite dev server)
-npm run server       # Backend only (Express server)
+git clone <repository-url>
+cd military-asset-management
 ```
 
-#### Production Mode
-```bash
-# Build the frontend
-npm run build
+### 2. Install Dependencies
 
-# Start the production server
+```bash
+npm install
+```
+
+### 3. Environment Variables
+
+Create a `.env` file in the root directory and add:
+
+```env
+NODE_ENV=development
+
+DB_HOST=your-database-host
+DB_PORT=5432
+DB_NAME=your-database-name
+DB_USER=your-database-user
+DB_PASSWORD=your-database-password
+
+JWT_SECRET=your-secret-key
+
+PORT=3000
+
+VITE_API_BASE_URL=http://localhost:3000
+```
+
+---
+
+## Database Setup
+
+- Make sure PostgreSQL is running
+- Create a database for the project
+- Tables will be created automatically on first run
+
+---
+
+## Running the Project
+
+### Development Mode
+
+Run frontend and backend together:
+
+```bash
+npm run dev:full
+```
+
+Or run separately:
+
+```bash
+npm run dev      # Frontend
+npm run server   # Backend
+```
+
+---
+
+### Production Build
+
+```bash
+npm run build
 npm start
 ```
 
-### Available Scripts
-- `npm run dev` - Start Vite development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run server` - Start Express server
-- `npm run dev:full` - Run both frontend and backend
-- `npm run lint` - Run ESLint
-- `npm start` - Start production server
+---
 
-## 📊 Database Schema
+## Available Scripts
 
-The application uses the following main tables:
-- `users` - User accounts and authentication
-- `equipment_types` - Categories of military equipment
-- `bases` - Military base information
-- `purchases` - Asset acquisition records
-- `transfers` - Asset transfer records
-- `assignments` - Personnel assignments
-- `asset_balances` - Current asset quantities per base
+| Command | Description |
+|---|---|
+| `npm run dev` | Start frontend server |
+| `npm run server` | Start backend server |
+| `npm run dev:full` | Run frontend + backend together |
+| `npm run build` | Create production build |
+| `npm start` | Start production server |
+| `npm run lint` | Run ESLint |
 
-## 🔐 Authentication
+---
 
-The system uses JWT-based authentication with the following features:
-- Secure password hashing with bcrypt
-- Token-based session management
-- Role-based access control
-- Automatic token verification on protected routes
+## Main Database Tables
 
-## 🌐 API Endpoints
+- `users`
+- `bases`
+- `equipment_types`
+- `purchases`
+- `transfers`
+- `assignments`
+- `asset_balances`
+
+---
+
+## API Routes
 
 ### Authentication
-- `POST /api/auth/login` - User login
-- `POST /api/auth/signup` - User registration
-- `GET /api/auth/verify` - Verify JWT token
+- `POST /auth/login`
+- `POST /auth/signup`
+- `GET /auth/verify`
 
-### Assets
-- `GET /api/assets` - Get asset balances
-- `POST /api/purchases` - Create purchase record
-- `GET /api/purchases` - Get purchase history
-- `POST /api/transfers` - Create transfer record
-- `GET /api/transfers` - Get transfer history
+### Assets & Transfers
+- `GET /assets`
+- `POST /purchases`
+- `GET /purchases`
+- `POST /transfers`
+- `GET /transfers`
 
 ### Personnel
-- `POST /api/assignments` - Create assignment
-- `GET /api/assignments` - Get assignment history
+- `POST /assignments`
+- `GET /assignments`
 
-### Configuration
-- `GET /api/bases` - Get base information
-- `GET /api/equipment-types` - Get equipment categories
+---
 
-## 🎨 UI Components
+## Deployment
 
-The application features a modern, responsive interface with:
-- Clean dashboard with key metrics
-- Data tables with sorting and filtering
-- Form components with validation
-- Interactive charts and graphs
-- Mobile-responsive design
+The project can be deployed easily on platforms like Render or Railway with PostgreSQL support.
 
-## 🚀 Deployment
+---
 
-### Render Deployment
-The application is configured for deployment on Render with:
-- Automatic build process
-- Environment variable configuration
-- PostgreSQL database integration
-- SSL certificate management
+## Future Improvements
 
-### Environment Variables for Production
-```env
-NODE_ENV=production
-DB_HOST=your-production-db-host
-DB_PORT=5432
-DB_NAME=your-production-db-name
-DB_USER=your-production-db-user
-DB_PASSWORD=your-production-db-password
-JWT_SECRET=your-production-jwt-secret
-PORT=10000
-```
+- Asset maintenance tracking
+- Notification system
+- Advanced analytics dashboard
+- Audit logs
+- Multi-role admin panel
 
-## 🤝 Contributing
+---
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+## License
 
-## 📝 License
+This project is licensed under the MIT License.
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+---
 
-## 🆘 Support
+## Author
 
-For support and questions:
-- Check the documentation
-- Review existing issues
-- Create a new issue with detailed information
-
-## 🔄 Version History
-
-- **v0.1.0** - Initial release with core asset management features
-  - User authentication system
-  - Asset purchase tracking
-  - Transfer management
-  - Personnel assignments
-  - Dashboard with analytics
+Developed by Chinmay Kumar
+Final Year Chemical Engineering Undergraduate at IIT Madras
